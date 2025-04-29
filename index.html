@@ -3,46 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Links de Formulários</title>
+  <title>Formulários Google</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+    }
+    .container-sm {
+      max-width: 400px;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
-  <div class="container my-5">
-    <h2 class="mb-4 text-center">Links de Formulários do Google</h2>
-    
-    <!-- Formulário para adicionar links -->
-    <form id="formularioLinks" class="mb-4">
-      <div class="mb-3">
-        <label for="linkFormulario" class="form-label">Insira o link do formulário:</label>
-        <input type="url" class="form-control" id="linkFormulario" placeholder="https://forms.gle/exemplo" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Adicionar Link</button>
-    </form>
+  <div class="container-sm text-center">
+    <h4 class="mb-3">Links de Formulários</h4>
 
-    <!-- Lista de links adicionados -->
-    <h5>Formulários Adicionados:</h5>
-    <ul id="listaLinks" class="list-group">
-      <!-- Itens adicionados dinamicamente -->
-    </ul>
+    <div class="mb-3">
+      <label class="form-label">Link (somente leitura):</label>
+      <input type="url" id="linkFormulario" class="form-control text-center" readonly>
+    </div>
+
+    <div>
+      <a id="abrirFormulario" href="#" target="_blank" class="btn btn-primary w-100">Abrir Formulário</a>
+    </div>
   </div>
 
   <script>
-    const formulario = document.getElementById('formularioLinks');
-    const lista = document.getElementById('listaLinks');
+    // Defina o link do formulário manualmente aqui:
+    const linkDoFormulario = "https://forms.gle/seuLinkAqui";
 
-    formulario.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const link = document.getElementById('linkFormulario').value;
-
-      if (link) {
-        const item = document.createElement('li');
-        item.className = 'list-group-item';
-        item.innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
-        lista.appendChild(item);
-
-        formulario.reset();
-      }
-    });
+    // Preenche o campo de input e o botão com o link
+    document.getElementById("linkFormulario").value = linkDoFormulario;
+    document.getElementById("abrirFormulario").href = linkDoFormulario;
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
